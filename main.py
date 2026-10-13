@@ -4,8 +4,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 #load the data file csv file
-df=pd.read_csv("C://Users//A//Desktop//data.csv")
-print(df)
+df=pd.read_csv("data.csv")
+
 #split data into features (x) and Target(y)
 X=df[['HoursStudied']]
 y=df['ExamScore']
@@ -20,7 +20,7 @@ st.write("Enter hours studied to predict the exam score")
 #user input
 hours=st.number_input("Hours studies:",min_value=0.0,step=0.1)
 if st.button("Predict Score"):
-    predicted_score=model,predict([[hours]])[0]
-    st.success(f"Predicted Score:{predicted_score: .2f}")
+    predicted_score=model.predict([[hours]])[0]
+    st.success(f"Predicted Score: {predicted_score: .2f}")
 st.write("### Sample Training data")
 st.dataframe(df)
